@@ -1,0 +1,19 @@
+# NPM - Node.Js
+node_modules
+# Composer
+/vendor/
+# Funcionalidades, ideas, etc.
+Notas.md
+# Source
+src/
+# Base de datos
+appsalon_mvc.sql
+# Desarrollo
+gulpfile.js
+# JSON
+package.json
+package-lock.json
+# Variables de entorno
+.env
+# Archivo mac
+.DS_Store
