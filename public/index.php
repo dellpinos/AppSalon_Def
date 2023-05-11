@@ -11,7 +11,6 @@ use MVC\Router;
 
 $router = new Router();
 
-
 // Inicia sesion
 $router->get('/', [LoginController::class, 'login']);
 $router->post('/', [LoginController::class, 'login']);
@@ -33,6 +32,7 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 
 // Area Pivada - cliente
 $router->get('/turno', [TurnoController::class, 'index']);
+
 // Area Privada - admin
 $router->get('/admin', [AdminController::class, 'index']);
 

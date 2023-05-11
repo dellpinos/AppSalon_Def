@@ -4,7 +4,7 @@ namespace Model;
 
 class Servicio extends ActiveRecord
 {
-    // Base dee datos
+    // Base de datos
     protected static $tabla = 'servicios';
     protected static $columnasDB = ['id', 'nombre', 'precio'];
 
@@ -27,7 +27,7 @@ class Servicio extends ActiveRecord
         if (!$this->precio) {
             self::$alertas['error'][] = 'El precio es obligatorio';
         }
-        if (!is_numeric($this->precio) || strlen($this->precio) > 3) { // Agregado para que no supere el DECIMAL 5,2 de la DB
+        if (!is_numeric($this->precio) || strlen($this->precio) > 4) { // Agregado para que no supere el DECIMAL 6,2 de la DB
             self::$alertas['error'][] = 'El precio debe ser un número válido con un máximo de 3 caracteres';
         } 
 

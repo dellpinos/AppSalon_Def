@@ -29,7 +29,7 @@ class Email
         $mail->Password = '29907ebc88b5c6';
 
         // Cabecera del email
-        $mail->setFrom('cuentas@appsalon.com'); // Aqui iria el dominio del host que estaria pagando
+        $mail->setFrom('cuentas@appsalon.com'); 
         $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
         $mail->Subject = 'Confirma tu cuenta';
 
@@ -59,7 +59,7 @@ class Email
         $mail->Password = '29907ebc88b5c6';
 
         // Cabecera del email
-        $mail->setFrom('cuentas@appsalon.com'); // Aqui iria el dominio del host que estaria pagando
+        $mail->setFrom('cuentas@appsalon.com');
         $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
         $mail->Subject = 'Restablecer contraseña';
 

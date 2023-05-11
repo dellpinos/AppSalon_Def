@@ -9,7 +9,6 @@ use Model\AdminTurno;
 class AdminController {
 
     public static function index(Router $router) {
-        // session_start();
 
         isAdmin();
 
@@ -20,7 +19,6 @@ class AdminController {
         if(!$fechas = checkdate($fechas[1], $fechas[2], $fechas[0])) {
             header('Location: /404');
         }
-
 
         // Consultar DB
         $query = "SELECT turnos.id, turnos.hora, CONCAT(usuarios.nombre, \" \" ,usuarios.apellido) AS cliente, ";
@@ -34,9 +32,7 @@ class AdminController {
         $query .= " ON turnosServicios.servicioId=servicios.id ";
         $query .= " WHERE fecha = '{$fecha}' ;";
 
-
         $turnos = AdminTurno::SQL($query);
-
 
         $router->render('admin/index', [
             'nombre' => $_SESSION['nombre'],

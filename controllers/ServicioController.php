@@ -9,9 +9,7 @@ class ServicioController {
 
     public static function index(Router $router){
 
-        // session_start();
         isAdmin();
-
         $servicios = Servicio::all();
 
         $router->render('servicios/index', [
@@ -43,7 +41,6 @@ class ServicioController {
             'servicio' => $servicio,
             'alertas' => $alertas
         ]);
-
     }
 
     public static function actualizar(Router $router){
@@ -59,13 +56,11 @@ class ServicioController {
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $servicio->sincronizar($_POST);
-
             $alertas = $servicio->validar();
 
             if(empty($alertas)) {
                 $servicio->guardar();
                 header('Location: /servicios');
-
             }
         }
 
@@ -74,7 +69,6 @@ class ServicioController {
             'servicio' => $servicio,
             'alertas' => $alertas
         ]);
-
     }
 
     public static function eliminar(){

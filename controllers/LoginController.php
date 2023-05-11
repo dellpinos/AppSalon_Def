@@ -30,7 +30,6 @@ class LoginController {
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['login'] = true;
 
-
                         // Redireccionamiento
                         if($usuario->admin === "1"){
                             $_SESSION['admin'] = $usuario->admin ?? null;
@@ -57,7 +56,6 @@ class LoginController {
 
         header('Location: /');
     }
-
     
     public static function olvide(Router $router){
         $alertas = [];
@@ -76,7 +74,6 @@ class LoginController {
                     // Enviar email
                     $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
                     $email->enviarInstrucciones();
-
                     Usuario::setAlerta('exito', 'Se han enviado las instrucciones a tu email');
 
                 } else {
@@ -104,7 +101,6 @@ class LoginController {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             // leer el nuevo password y guardarlo
             $password = new Usuario($_POST);
-
             $alertas = $password->validarPassword();
 
             if(empty($alertas)){
@@ -149,7 +145,6 @@ class LoginController {
                     $alertas = Usuario::getAlertas(); // doble punto porque es un metodo estatico, no requiero una instancia
                 } else {
                     // No esta registrado
-
                     // Hashear password
                     $usuario->hashPassword();
                     // Generar un Token unico
@@ -186,7 +181,7 @@ class LoginController {
 
         if(empty($usuario)){
             // Mostrar mensaje de error
-            Usuario::setAlerta('error', 'Token no valido'); // lo agrega en el array
+            Usuario::setAlerta('error', 'Token no valido');
         } else {
             // Modificar usuario a confirmado
             $usuario->confirmado = '1'; // Modifico el atributo en memoria

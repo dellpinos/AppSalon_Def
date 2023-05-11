@@ -20,7 +20,7 @@ class Usuario extends ActiveRecord
 
     public function __construct($args = []) // Recibe la info de POST
     {
-        $this->id = $args['id'] ?? null; // estos atributos son los "name" en HTML
+        $this->id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->apellido = $args['apellido'] ?? '';
         $this->email = $args['email'] ?? '';
@@ -92,7 +92,7 @@ class Usuario extends ActiveRecord
         return $resultado;
     }
     public function hashPassword(){
-        $this->password = password_hash($this->password, PASSWORD_BCRYPT); //sobreescribe el mismo atributo
+        $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
     public function crearToken(){
         $this->token = uniqid();

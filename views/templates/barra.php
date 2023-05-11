@@ -5,7 +5,6 @@
 
 <?php
 
-
 if(isset($_SESSION['admin'])) { ?>
 
     <div class="barra-servicios">

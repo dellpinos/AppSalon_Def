@@ -2,7 +2,7 @@
 namespace Model;
 class ActiveRecord {
 
-    // Base DE DATOS
+    // Base de datos
     protected static $db;
     protected static $tabla = '';
     protected static $columnasDB = [];
@@ -10,7 +10,7 @@ class ActiveRecord {
     // Alertas y Mensajes
     protected static $alertas = [];
     
-    // Definir la conexión a la BD - includes/database.php
+    // Asigno conexión a la BD
     public static function setDB($database) {
         self::$db = $database;
     }
@@ -109,7 +109,7 @@ class ActiveRecord {
         return $resultado;
     }
 
-    // Busca un registro por su id
+    // Busca un registro por id
     public static function find($id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = {$id}";
         $resultado = self::consultarSQL($query);
@@ -123,7 +123,7 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
-    // Consulta Plana de SQL (Utilizar cuando los métodos del modelo no son suficientes)
+    // Consulta Plana de SQL
     public static function SQL($query) {
         $resultado = self::consultarSQL($query);
         return $resultado;
@@ -136,7 +136,7 @@ class ActiveRecord {
         return array_shift( $resultado ) ; // esta función es para que solo devuelva el primere resultado
     }
 
-    // crea un nuevo registro
+    // Crea un nuevo registro
     public function crear() {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
@@ -147,7 +147,6 @@ class ActiveRecord {
         $query .= " ) VALUES (' "; 
         $query .= join("', '", array_values($atributos));
         $query .= "') ";
-
 
         // Resultado de la consulta
         $resultado = self::$db->query($query);
