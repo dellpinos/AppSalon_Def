@@ -51,5 +51,6 @@ class Router
         include_once __DIR__ . "/views/$view.php";
         $contenido = ob_get_clean(); // Limpia el Buffer
         include_once __DIR__ . '/views/layout.php';
-    }
+        }
+    }    
 }

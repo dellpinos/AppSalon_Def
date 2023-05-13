@@ -17,3 +17,5 @@ package-lock.json
 .env
 # Archivo mac
 .DS_Store
+#Cred
+Cred_Prod.md

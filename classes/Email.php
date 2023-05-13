@@ -30,7 +30,9 @@ class Email
 
         // Cabecera del email
         $mail->setFrom('cuentas@appsalon.com'); 
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+
+        $mail->addAddress($this->email, 'AppSalon.com'); // <<<<<
+
         $mail->Subject = 'Confirma tu cuenta';
 
         // Cuerpo del email en HTML
@@ -60,7 +62,9 @@ class Email
 
         // Cabecera del email
         $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+
+        $mail->addAddress($this->email, 'AppSalon.com'); // <<<<<<
+
         $mail->Subject = 'Restablecer contraseña';
 
         // Cuerpo del email en HTML
